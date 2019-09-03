@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="user" value="root"/>
+        <property name="password" value="root"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="100"/>
+        <property name="acquireIncrement" value="3"/>
+        <property name="acquireRetryAttempts" value="60"/>
+        <property name="acquireRetryDelay" value="1000"/>
+        <property name="autoCommitOnClose" value="false"/>
+        <property name="checkoutTimeout" value="0"/>
+        <property name="idleConnectionTestPeriod" value="120"/>
+        <property name="maxIdleTime" value="60"/>
+        <property name="testConnectionOnCheckin" value="false"/>
+        <property name="maxStatements" value="8"/>
+        <property name="maxStatementsPerConnection" value="5"/>
+        <property name="unreturnedConnectionTimeout" value="25"/>
+    </bean>
+    <!-- mybatis文件配置，配置SqlSessionFactoryBean类，扫描所有mapper文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 指定数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
+    </bean>
+    <!-- spring与mybatis整合配置，org.mybatis.spring.mapper.MapperScannerConfigurer类，扫描所有dao-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dao"/>
+    </bean>
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>
