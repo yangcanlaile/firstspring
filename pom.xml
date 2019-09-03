@@ -260,7 +260,7 @@
                     <configuration>
                         <verbose>true</verbose>
                         <!-- 代表生成的内容不要覆盖已有的内容 -->
-                        <overwrite>false</overwrite>
+                        <overwrite>true</overwrite>
                     </configuration>
                     <dependencies>
                         <dependency>
