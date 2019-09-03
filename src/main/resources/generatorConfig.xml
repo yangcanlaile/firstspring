@@ -32,7 +32,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="user_t">
+        <table tableName="user_t" domainObjectName="User">
             <generatedKey column="id" sqlStatement="Mysql"/>
         </table>
     </context>
