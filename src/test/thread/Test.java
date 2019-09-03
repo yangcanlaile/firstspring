@@ -1,0 +1,43 @@
+package thread;
+
+import bean.Apple;
+import tools.FilterPredicate;
+import tools.Predicate;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test {
+
+    public static List<Apple> filterGreenApple(List<Apple> inventory, Predicate pre) {
+        List<Apple> result = new ArrayList<Apple>();
+        for (Apple apple : inventory) {
+            if (pre.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        List<Apple> applist = new ArrayList<Apple>();
+        applist.add(new Apple("green", 100));
+        applist.add(new Apple("red", 300));
+        applist.add(new Apple("yellow", 800));
+
+        List<Integer> intList = new ArrayList<Integer>();
+        intList.add(new Integer(1));
+        intList.add(new Integer(50));
+        intList.add(new Integer(35));
+//        List<Apple> returnApp = FilterPredicate.filter(applist, (Apple apple) -> "red".equals(apple.getColor()));
+        List<Integer> intApp = FilterPredicate.filter(intList, (Integer a) -> (a > 40));
+
+        for(int i : intApp) {
+            System.out.println(i);
+        }
+
+
+
+    }
+}
