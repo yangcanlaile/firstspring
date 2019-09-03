@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.entity.User;
 import com.service.UserServiceImp;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,6 @@ public class UserController {
     @GetMapping
     public String Get() {
         User user = userServiceImp.selectByPrimaryKey(1);
-        String jsonResult = JSON.toJSONString(user);
-        return jsonResult;
+        return JSON.toJSONString(user, SerializerFeature.WriteMapNullValue);
     }
 }
