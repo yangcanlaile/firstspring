@@ -1,9 +1,11 @@
 package thread;
 
 import bean.Apple;
+import bean.Dish;
 import tools.Predicate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -40,24 +42,15 @@ public class Test {
         menu.add("vegetable");
         menu.add("meat");
 
-        String[] strings = {"hello", "world", "hi", "sprin"};
-        String[] strings2 = {"HELLO", "World", "world", "World", "World", "heLLo" };
+        List<Dish> listDish = new ArrayList<>();
+        listDish.add(new Dish("veg"));
+        listDish.add(new Dish("apple"));
+        listDish.add(new Dish("orange"));
 
-        /**
-         * Filter:过滤， 侧重于过滤。forEach:循环
-         */
-        Stream.of(strings).filter((a) -> a.startsWith("h")).forEach(System.out::println);
-
-        /**
-         * Sorted:排序
-         */
-        Stream.of(strings).sorted().forEach(System.out::println);
-
-        Stream.of(strings2).distinct().forEach(System.out::println);
-
-        Stream.of(strings2).map(String::toLowerCase).forEach(System.out::println);
+        listDish.stream().filter(Dish::isVegetarian).forEach(d -> {
+            System.out.println(d.getName());
+        });
 
 
-        Stream.of(strings2).map(a->a.concat("_aa")).forEach(System.out::println);
     }
 }

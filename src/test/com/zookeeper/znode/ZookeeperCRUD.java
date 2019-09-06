@@ -24,6 +24,19 @@ public class ZookeeperCRUD {
         }
         zk.create(path, data.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 
+    }
+
+    public void deleteNode(String path) throws KeeperException, InterruptedException {
+
+        zk.delete(path, -1);
+    }
+
+    public boolean exists(String path) throws KeeperException, InterruptedException {
+        if (zk.exists(path, null) != null) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

@@ -1,13 +1,22 @@
 package bean;
 
 public class Dish {
-    private int calories;
+    public String name;
 
-    public int getCalories() {
-        return calories;
+    public Dish(String name) {
+        this.name = name;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
+    public static boolean isVegetarian(Dish d) {
+
+        if ("veg".equals(d.getName())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String getName() {
+        return name;
     }
 }
