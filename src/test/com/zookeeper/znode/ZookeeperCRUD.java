@@ -32,11 +32,7 @@ public class ZookeeperCRUD {
     }
 
     public boolean exists(String path) throws KeeperException, InterruptedException {
-        if (zk.exists(path, null) != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return zk.exists(path, null) != null;
 
     }
 

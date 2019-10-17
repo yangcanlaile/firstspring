@@ -9,11 +9,7 @@ public class Dish {
 
     public static boolean isVegetarian(Dish d) {
 
-        if ("veg".equals(d.getName())) {
-            return true;
-        } else {
-            return false;
-        }
+        return "veg".equals(d.getName());
     }
 
     public String getName() {

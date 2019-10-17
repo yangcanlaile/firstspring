@@ -3,13 +3,13 @@ package com.service;
 import com.entity.User;
 
 public interface UserService {
-    public int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer id);
 
-    public int insert (User user);
+    int insert(User user);
 
-    public User selectByPrimaryKey(Integer uid);
+    User selectByPrimaryKey(Integer uid);
 
-    public int updateByPrimaryKey(User user);
+    int updateByPrimaryKey(User user);
 
 
 

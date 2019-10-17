@@ -14,16 +14,16 @@
     <servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--Spring-servlet.xml config
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-servlet.xml</param-value>
-        </init-param> -->
-        <!--若在WEB-INF文件夹下，也可以指定目录
+        <!--Spring-servlet.xml config-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>classpath:spring-servlet.xml</param-value>-->
+        <!--</init-param>-->
+        <!--若在WEB-INF文件夹下，也可以指定目录-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/spring-servlet.xml</param-value>
-        </init-param>-->
+        </init-param>
         <!-- load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方法) -->
         <load-on-startup>1</load-on-startup>
     </servlet>

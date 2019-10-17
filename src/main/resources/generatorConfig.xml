@@ -36,6 +36,11 @@
         </javaClientGenerator>
 
         <table tableName="user_t" domainObjectName="User">
+
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+        <table tableName="role" domainObjectName="Role">
+
             <generatedKey column="id" sqlStatement="Mysql"/>
         </table>
 
