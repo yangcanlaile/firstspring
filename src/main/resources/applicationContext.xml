@@ -4,15 +4,15 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.service,com.dao, com.controller"/>
+    <context:component-scan base-package="com.service,com.dao, com.controller, com.config"/>
     <import resource="spring-mybatis.xml"/>
     <bean id="user1" class="com.entity.User">
         <property name="userName" value="root"></property>
         <property name="password" value="root"></property>
     </bean>
-    <bean id="user2" class="com.entity.User">
-        <property name="userName" value="root1"></property>
-        <property name="password" value="root1"></property>
-    </bean>
+    <!--<bean id="user2" class="com.entity.User">-->
+        <!--<property name="userName" value="root1"></property>-->
+        <!--<property name="password" value="root1"></property>-->
+    <!--</bean>-->
 
 </beans>
