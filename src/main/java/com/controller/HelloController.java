@@ -19,7 +19,7 @@ public class HelloController {
     public String hello(){
 
 
-        //H
+        //HE
         User user = userServiceImp.selectByPrimaryKey(1);
         logger.info("Can access the database!");
         System.out.println("sout -Can access the database!");
